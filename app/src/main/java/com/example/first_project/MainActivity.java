@@ -30,10 +30,13 @@ public class MainActivity extends AppCompatActivity {
                 String pass = etPass.getText().toString();
 
                 Log.i("NAME",name);
-                Log.i("NAME",pass);
 
-                if (name.equals("c") && pass.equals("zxc")){
+
+                if (!name.isEmpty() || !pass.isEmpty() &&( name.equals("c") && pass.equals("zxc"))){
                     Intent i = new Intent(MainActivity.this,Home.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Name",name);
+                    i.putExtras(bundle);
                     startActivity(i);
                     finish();
                 }
